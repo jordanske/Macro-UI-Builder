@@ -1,3 +1,10 @@
+# Links
+https://medium.com/javascript-in-plain-english/drag-and-drop-dashboard-builder-with-angular-and-gridster-a07592e54ce2
+https://github.com/tiberiuzuld/angular-gridster2
+https://angular.io/guide/router-tutorial
+https://mdbootstrap.com/docs/angular/forms/switch/
+
+
 # MacroUiBuilder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.

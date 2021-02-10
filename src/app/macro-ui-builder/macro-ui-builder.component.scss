@@ -1,0 +1,19 @@
+.gridster-wrapper {
+    overflow: visible;
+}
+
+gridster {
+    &.fit {
+        overflow: visible;
+    }
+
+    .gridster-column,
+    .gridster-row {
+        border: none;
+        background: rgba(255, 255, 255, .1);
+    }
+}
+
+gridster-item {
+    overflow: visible;
+}
