@@ -22,10 +22,10 @@ export class MacroUiBuilderComponent {
         allowMultiLayer: true,
         maxLayerIndex: 5,
         // displayGrid: 'always',
-        minCols: 20,
-        maxCols: 20,
-        minRows: 20,
-        maxRows: 20,
+        minCols: 32,
+        maxCols: 32,
+        minRows: 18,
+        maxRows: 18,
     };
 
     hotbars: HotbarItem[] = [];

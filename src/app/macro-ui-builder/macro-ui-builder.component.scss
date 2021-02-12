@@ -16,4 +16,8 @@ gridster {
 
 gridster-item {
     overflow: visible;
+
+    &:hover {
+        z-index: 20 !important;
+    }
 }

@@ -1,6 +1,6 @@
-<div class="container pt-4">
+<div class="container-fluid pt-4">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="d-flex justify-content-between">
                 <div>
                     SIDEBAR
@@ -16,9 +16,9 @@
                 <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="addItem()">Add Hotbar</button>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10 px-5">
 
-            <div class="gridster-wrapper embed-responsive embed-responsive-1by1">
+            <div class="gridster-wrapper embed-responsive embed-responsive-16by9">
                 <gridster [options]="options" class="embed-responsive-item">
                     <gridster-item *ngFor="let item of layout" [item]="item">
                         <div class="gridster-item-content w-100 h-100" *ngIf="!layoutMode">
@@ -29,10 +29,10 @@
                             </div>
                             <div class="gridster-item-content" mdbDropdown>
                                 <mdb-icon fas icon="ellipsis-v" classInside="dropdown-toggle" mdbDropdownToggle class="waves-effect"mdbWavesEffect></mdb-icon>
-                                <div class="dropdown-menu dropdown-primary">
+                                <div class="dropdown-menu dropdown-primary dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="divider dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="#">Remove Hotbar</a>
                                 </div>
                             </div>
                         </div>

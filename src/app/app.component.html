@@ -1,24 +1,22 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark default-color ie-nav" [containerInside]="false">
-    <div class="container">
-        <mdb-navbar-brand>
-            <a class="logo navbar-brand" href="#"><strong>Macro UI Builder</strong></a>
-        </mdb-navbar-brand>
-        <links>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active waves-light" mdbWavesEffect>
-                    <a class="nav-link">Builder <span class="sr-only">(current)</span></a>
-                </li>
-                <!-- <li class="nav-item waves-light" mdbWavesEffect>
-                    <a class="nav-link">Features</a>
-                </li> -->
-            </ul>
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item waves-light" mdbWavesEffect>
-                    <a class="nav-link"><mdb-icon fab icon="github"></mdb-icon></a>
-                </li>
-            </ul>
-        </links>
-    </div>
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" href="#"><strong>Macro UI Builder</strong></a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active waves-light" mdbWavesEffect>
+                <a class="nav-link">Builder <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link">Features</a>
+            </li> -->
+        </ul>
+        <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link"><mdb-icon fab icon="github"></mdb-icon></a>
+            </li>
+        </ul>
+    </links>
 </mdb-navbar>
 <main>
     <router-outlet></router-outlet>
