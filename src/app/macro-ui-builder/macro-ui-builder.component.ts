@@ -11,6 +11,8 @@ export class MacroUiBuilderComponent {
 
     layoutMode = true;
 
+    hotbarIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
     options: GridsterConfig = {
         draggable: {
             enabled: true
@@ -26,6 +28,7 @@ export class MacroUiBuilderComponent {
         maxCols: 32,
         minRows: 18,
         maxRows: 18,
+        margin: -1, // 4
     };
 
     hotbars: HotbarItem[] = [];
@@ -58,6 +61,7 @@ export class MacroUiBuilderComponent {
                 id: UUID.UUID(),
                 cols: [12, 6, 4, 3, 2, 1][hotbar.layout],
                 rows: [1, 2, 3, 4, 6, 12][hotbar.layout],
+                layout: ['L12x1', 'L6x2', 'L4x3', 'L3x4', 'L2x6', 'L1x12'][hotbar.layout],
             });
         });
     }

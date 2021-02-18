@@ -41,7 +41,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-                "node_modules/hammerjs/hammer.min.js"
+              "node_modules/hammerjs/hammer.min.js"
             ]
           },
           "configurations": {
@@ -113,7 +113,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-                "node_modules/hammerjs/hammer.min.js"
+              "node_modules/hammerjs/hammer.min.js"
             ]
           }
         },
@@ -141,6 +141,10 @@
               "devServerTarget": "macro-ui-builder:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }

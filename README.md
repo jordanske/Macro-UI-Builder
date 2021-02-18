@@ -4,6 +4,10 @@ https://github.com/tiberiuzuld/angular-gridster2
 https://angular.io/guide/router-tutorial
 https://mdbootstrap.com/docs/angular/forms/switch/
 
+https://medium.com/tech-insights/how-to-deploy-angular-apps-to-github-pages-gh-pages-896c4e10f9b4
+
+
+ng deploy --base-href=/Macro-UI-Builder/ --no-silent
 
 # MacroUiBuilder
 

@@ -21,10 +21,15 @@
             <div class="gridster-wrapper embed-responsive embed-responsive-16by9">
                 <gridster [options]="options" class="embed-responsive-item">
                     <gridster-item *ngFor="let item of layout" [item]="item">
-                        <div class="gridster-item-content w-100 h-100" *ngIf="!layoutMode">
-
+                        <div class="gridster-item-content w-100 h-100" >
+                            <div [class]="'hotbar-icons ' + item.layout">
+                                <div class="hotbar-icon" *ngFor="let hotbarIndex of hotbarIndexes">
+                                    <span class="label">{{ hotbarIndex + 1 }}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="d-flex w-100 h-100" *ngIf="layoutMode">
+                        <div class="drag-overlay" *ngIf="layoutMode"></div>
+                        <!-- <div class="d-flex w-100 h-100" *ngIf="layoutMode">
                             <div class="w-100">
                             </div>
                             <div class="gridster-item-content" mdbDropdown>
@@ -35,7 +40,7 @@
                                     <a class="dropdown-item text-danger" href="#">Remove Hotbar</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </gridster-item>
                 </gridster>
             </div>
