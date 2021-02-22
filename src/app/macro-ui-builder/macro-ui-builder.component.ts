@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GridsterConfig, GridsterItem, GridsterItemComponentInterface } from 'angular-gridster2';
+import { GridsterConfig, GridsterItem, GridsterItemComponentInterface, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
 
 const maxHotbars = 10;
+const gridMultiplier = 4;
 
 @Component({
     selector: 'app-macro-ui-builder',
@@ -17,6 +18,7 @@ export class MacroUiBuilderComponent implements OnInit {
     hotbarLayouts: { label: string, value: number }[] = [];
 
     options: GridsterConfig = {
+        gridType: GridType.Fit,
         draggable: {
             enabled: true
         },
@@ -24,13 +26,15 @@ export class MacroUiBuilderComponent implements OnInit {
         resizable: {
             enabled: false
         },
+        swap: false,
+        swapWhileDragging: false,
         allowMultiLayer: true,
-        maxLayerIndex: 5,
+        maxLayerIndex: 10,
         // displayGrid: 'always',
-        minCols: 32 * 4,
-        maxCols: 32 * 4,
-        minRows: 18 * 4,
-        maxRows: 18 * 4,
+        minCols: 32 * gridMultiplier,
+        maxCols: 32 * gridMultiplier,
+        minRows: 18 * gridMultiplier,
+        maxRows: 18 * gridMultiplier,
         margin: -1, // 4
         // margin: 0,
         itemChangeCallback: this.onItemChange.bind(this)
@@ -51,14 +55,14 @@ export class MacroUiBuilderComponent implements OnInit {
             }
         }
 
+        // Default hotbars
         for (let index = 0; index < maxHotbars; index++) {
             this.hotbars.push({
                 number: index + 1,
-                positionX: 0,
-                positionY: 0,
+                positionX: index > 4 ? (12 * gridMultiplier) : 0,
+                positionY: (index % 5) * (gridMultiplier),
                 layout: HotbarLayout.L12x1,
                 visible: true,
-                // layout: Math.floor((5 - 0 + 1) * Math.random()) + 0
             });
         }
         this.refreshLayout();
@@ -104,8 +108,9 @@ export class MacroUiBuilderComponent implements OnInit {
                 x: hotbar.positionX,
                 y: hotbar.positionY,
                 id: UUID.UUID(),
-                cols: [12, 6, 4, 3, 2, 1][hotbar.layout] * 4,
-                rows: [1, 2, 3, 4, 6, 12][hotbar.layout] * 4,
+                cols: [12, 6, 4, 3, 2, 1][hotbar.layout] * gridMultiplier,
+                rows: [1, 2, 3, 4, 6, 12][hotbar.layout] * gridMultiplier,
+                layerIndex: index
             });
         });
     }
