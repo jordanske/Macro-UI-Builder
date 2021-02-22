@@ -14,6 +14,7 @@ export class MacroUiBuilderComponent implements OnInit {
     layoutMode = true;
 
     hotbarIconIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    hotbarLayouts: { label: string, value: number }[] = [];
 
     options: GridsterConfig = {
         draggable: {
@@ -40,6 +41,15 @@ export class MacroUiBuilderComponent implements OnInit {
 
     ngOnInit(): void {
         
+        for (let item in HotbarLayout) {
+            if (isNaN(Number(item))) {
+                this.hotbarLayouts.push({
+                    label: item,
+                    value: parseInt(HotbarLayout[item]),
+                });
+            }
+        }
+
         for (let index = 0; index < maxHotbars; index++) {
             this.hotbars.push({
                 number: index + 1,
@@ -63,6 +73,10 @@ export class MacroUiBuilderComponent implements OnInit {
             return;
         }
         this.layout.splice(this.layout.indexOf(item), 1); */
+    }
+
+    onHotbarLayourChange() {
+        this.refreshLayout();
     }
 
     onItemChange(item: GridsterHotbarItem, itemComponent: GridsterItemComponentInterface): void {
@@ -116,10 +130,10 @@ interface GridsterHotbarItem extends GridsterItem {
 }
 
 enum HotbarLayout {
-    L12x1,
-    L6x2,
-    L4x3,
-    L3x4,
-    L2x6,
-    L1x12,
+    L12x1 = 0,
+    L6x2  = 1,
+    L4x3  = 2,
+    L3x4  = 3,
+    L2x6  = 4,
+    L1x12 = 5,
 }

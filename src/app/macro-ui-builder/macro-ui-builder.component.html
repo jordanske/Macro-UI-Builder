@@ -13,7 +13,26 @@
             <hr>
 
             <div *ngIf="layoutMode">
-                TODO
+                
+                <div class="hotbar-layout">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let hotbarLayout of hotbarLayouts">
+                                {{ hotbarLayout.label }}
+                            </th>
+                        </tr>
+                        <tr class="hotbar-layout-item" *ngFor="let hotbar of hotbars">
+                            <td>
+                                {{ hotbar.number }}
+                            </td>
+                            <td *ngFor="let hotbarLayout of hotbarLayouts">
+                                <input type="radio" [name]="'hotbar_' + hotbar.number" (change)="onHotbarLayourChange()" [value]="hotbarLayout.value" [(ngModel)]="hotbar.layout">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
         </div>
         <div class="col-md-10 px-5">
