@@ -13,7 +13,7 @@
             <hr>
 
             <div *ngIf="layoutMode">
-                <button type="button" mdbBtn color="primary" mdbWavesEffect (click)="addItem()">Add Hotbar</button>
+                TODO
             </div>
         </div>
         <div class="col-md-10 px-5">
@@ -21,10 +21,11 @@
             <div class="gridster-wrapper embed-responsive embed-responsive-16by9">
                 <gridster [options]="options" class="embed-responsive-item">
                     <gridster-item *ngFor="let item of layout" [item]="item">
+                        <div [class]="'hotbar-number ' + item.layout">{{ item.hotbarItem ? item.hotbarItem.number : '' }}</div>
                         <div class="gridster-item-content w-100 h-100" >
                             <div [class]="'hotbar-icons ' + item.layout">
-                                <div class="hotbar-icon" *ngFor="let hotbarIndex of hotbarIndexes">
-                                    <span class="label">{{ hotbarIndex + 1 }}</span>
+                                <div class="hotbar-icon" *ngFor="let hotbarIconIndex of hotbarIconIndexes">
+                                    <span class="label">{{ hotbarIconIndex + 1 }}</span>
                                 </div>
                             </div>
                         </div>
