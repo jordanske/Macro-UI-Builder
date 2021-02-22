@@ -31,8 +31,8 @@ export class MacroUiBuilderComponent implements OnInit {
         maxCols: 32 * 4,
         minRows: 18 * 4,
         maxRows: 18 * 4,
-        // margin: -1, // 4
-        margin: 0,
+        margin: -1, // 4
+        // margin: 0,
         itemChangeCallback: this.onItemChange.bind(this)
     };
 
