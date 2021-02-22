@@ -27,11 +27,12 @@ export class MacroUiBuilderComponent implements OnInit {
         allowMultiLayer: true,
         maxLayerIndex: 5,
         // displayGrid: 'always',
-        minCols: 32,
-        maxCols: 32,
-        minRows: 18,
-        maxRows: 18,
-        margin: -1, // 4
+        minCols: 32 * 4,
+        maxCols: 32 * 4,
+        minRows: 18 * 4,
+        maxRows: 18 * 4,
+        // margin: -1, // 4
+        margin: 0,
         itemChangeCallback: this.onItemChange.bind(this)
     };
 
@@ -103,8 +104,8 @@ export class MacroUiBuilderComponent implements OnInit {
                 x: hotbar.positionX,
                 y: hotbar.positionY,
                 id: UUID.UUID(),
-                cols: [12, 6, 4, 3, 2, 1][hotbar.layout],
-                rows: [1, 2, 3, 4, 6, 12][hotbar.layout],
+                cols: [12, 6, 4, 3, 2, 1][hotbar.layout] * 4,
+                rows: [1, 2, 3, 4, 6, 12][hotbar.layout] * 4,
             });
         });
     }
