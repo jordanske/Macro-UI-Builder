@@ -151,7 +151,13 @@ class HotbarItem {
     get icon_path(): string
     {
         if (this.icon_id) {
-            return IconCollection.icons[this.icon_id].file;
+            let file: string = IconCollection.icons[this.icon_id].file;
+
+            if (file.startsWith('/')) {
+                return file.substr(1);
+            }
+
+            return file;
         }
 
         return '';
