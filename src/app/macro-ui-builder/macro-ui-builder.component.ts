@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { GridsterConfig, GridsterItem, GridsterItemComponentInterface, GridType } from 'angular-gridster2';
 import { UUID } from 'angular2-uuid';
 
+import IconCollectionImported from '../../assets/icons.json';
+const IconCollection: any = IconCollectionImported;
+
 const maxHotbars = 10;
 const gridMultiplier = 4;
 
@@ -45,7 +48,7 @@ export class MacroUiBuilderComponent implements OnInit {
     layout: GridsterHotbarItem[] = [];
 
     ngOnInit(): void {
-        
+
         for (let item in HotbarLayout) {
             if (isNaN(Number(item))) {
                 this.hotbarLayouts.push({
@@ -55,15 +58,18 @@ export class MacroUiBuilderComponent implements OnInit {
             }
         }
 
+        const iconIDs = Object.keys(IconCollection.icons);
+
         // Default hotbars
         for (let index = 0; index < maxHotbars; index++) {
-            this.hotbars.push({
-                number: index + 1,
-                positionX: index > 4 ? (12 * gridMultiplier) : 0,
-                positionY: (index % 5) * (gridMultiplier),
-                layout: HotbarLayout.L12x1,
-                visible: true,
-            });
+            this.hotbars.push(new HotbarItem(
+                index + 1,
+                index > 4 ? (12 * gridMultiplier) + gridMultiplier : 0,
+                (index % 5) * (gridMultiplier + 1),
+                HotbarLayout.L12x1,
+                true,
+                iconIDs[Math.floor((iconIDs.length + 1) * Math.random())]
+            ));
         }
         this.refreshLayout();
     }
@@ -115,18 +121,41 @@ export class MacroUiBuilderComponent implements OnInit {
         });
     }
 
-    public JSON;
-    public constructor() {
-        this.JSON = JSON;
-      }
+
 }
 
-interface HotbarItem {
-    number: number;
-    positionX: number;
-    positionY: number;
-    layout: HotbarLayout;
-    visible: boolean;
+class HotbarItem {
+    public number: number;
+    public positionX: number;
+    public positionY: number;
+    public layout: HotbarLayout;
+    public visible: boolean;
+    public icon_id: string;
+
+    constructor(
+        number: number,
+        positionX: number,
+        positionY: number,
+        layout: HotbarLayout,
+        visible: boolean,
+        icon_id: string,
+    ) {
+        this.number = number;
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.layout = layout;
+        this.visible = visible;
+        this.icon_id = icon_id;
+    }
+
+    get icon_path(): string
+    {
+        if (this.icon_id) {
+            return IconCollection.icons[this.icon_id].file;
+        }
+
+        return '';
+    }
 }
 
 interface GridsterHotbarItem extends GridsterItem {
