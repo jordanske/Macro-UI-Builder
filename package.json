@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "convert_icons": "node convert_icons.js"
+    "convert_icons": "node convert_icons.js",
+    "deploy": "ng deploy --base-href=/Macro-UI-Builder/ --no-silent",
+    "wip_push": "git add --all && git commit -m 'wip' && git push"
   },
   "private": true,
   "dependencies": {
